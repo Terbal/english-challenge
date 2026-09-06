@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>100 Days · 1 Minute of English</title>
+<meta name="description" content="A 100-day speaking coach: build ideas, learn vocabulary, speak for one minute a day, and answer unexpected questions in English." />
+<meta name="theme-color" content="#0a0f1c" />
+<link rel="manifest" href="./manifest.json" />
+<link rel="icon" href="./icons/icon-192.png" />
+<link rel="apple-touch-icon" href="./icons/icon-192.png" />
+<link rel="stylesheet" href="./css/style.css" />
+<script>
+  // Applied before first paint to avoid a flash of the wrong theme.
+  try {
+    var raw = localStorage.getItem("100days_english_state_v1");
+    var theme = raw ? (JSON.parse(raw).settings || {}).theme : null;
+    document.documentElement.setAttribute("data-theme", theme || "dark");
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+</script>
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="app-brand">
+      <span class="brand-mission">100-DAY MISSION</span>
+      <span class="brand-title">1 Minute of English</span>
+    </div>
+    <div class="header-actions">
+      <button class="icon-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+        <span data-icon="moon" data-icon-size="18" class="theme-icon theme-icon--moon"></span>
+        <span data-icon="sun" data-icon-size="18" class="theme-icon theme-icon--sun"></span>
+      </button>
+      <button class="icon-toggle" id="settings-toggle" aria-label="Settings">
+        <span data-icon="settings" data-icon-size="18"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="settings-panel" id="settings-panel">
+    <label for="voice-select">Pronunciation voice</label>
+    <select id="voice-select"></select>
+    <button id="reset-progress-btn">Reset all progress</button>
+  </div>
+
+  <main id="app" role="main"></main>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn" data-view="dashboard"><span class="nav-icon" data-icon="home"></span>Today</button>
+    <button class="nav-btn" data-view="tracker"><span class="nav-icon" data-icon="map"></span>Map</button>
+    <button class="nav-btn" data-view="phrasebank"><span class="nav-icon" data-icon="book"></span>Phrases</button>
+    <button class="nav-btn" data-view="quiz"><span class="nav-icon" data-icon="brain"></span>Quiz</button>
+  </nav>
+
+  <script src="./js/icons.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/speech.js"></script>
+  <script src="./js/recorder.js"></script>
+  <script src="./js/mindmap.js"></script>
+  <script src="./js/vocabulary.js"></script>
+  <script src="./js/tracker.js"></script>
+  <script src="./js/quiz.js"></script>
+  <script src="./js/app.js"></script>
+  <script>
+    document.getElementById("settings-toggle").addEventListener("click", () => {
+      document.getElementById("settings-panel").classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
