@@ -133,13 +133,6 @@ button { font-family: inherit; }
 }
 .icon-toggle:hover { color: var(--text); border-color: var(--accent-bright); }
 
-/* Theme toggle shows a moon in dark mode, a sun in light mode. */
-#theme-toggle { position: relative; }
-.theme-icon { display: flex; }
-.theme-icon--sun { display: none; }
-[data-theme="light"] .theme-icon--moon { display: none; }
-[data-theme="light"] .theme-icon--sun { display: flex; }
-
 /* Generic inline icon sizing everywhere svg icons are used */
 .icon { display: inline-block; vertical-align: -3px; flex-shrink: 0; }
 .inline-icon { vertical-align: -2px; margin: 0 1px; }
@@ -165,6 +158,8 @@ button { font-family: inherit; }
 
 .settings-panel.open { display: block; }
 
+.settings-row { margin-bottom: 16px; }
+
 .settings-panel label {
   display: block;
   font-size: 12px;
@@ -179,7 +174,6 @@ button { font-family: inherit; }
   border: 1px solid var(--surface-border);
   background: var(--surface-solid);
   color: var(--text);
-  margin-bottom: 14px;
 }
 
 #reset-progress-btn {
@@ -539,6 +533,9 @@ main#app {
   padding: 9px 16px;
   font-size: 13.5px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 .pill.selected { background: linear-gradient(135deg, var(--accent), var(--accent-cyan)); color: var(--on-accent); border-color: transparent; font-weight: 700; }
 .pill-num { padding: 9px 14px; }

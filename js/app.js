@@ -587,14 +587,25 @@
   }
 
   function wireThemeToggle() {
-    const btn = document.getElementById("theme-toggle");
-    if (!btn) return;
+    const row = document.getElementById("theme-pill-row");
+    if (!row) return;
     applyTheme(state.settings.theme || "dark");
-    btn.addEventListener("click", () => {
-      const next = (state.settings.theme || "dark") === "dark" ? "light" : "dark";
-      state.settings.theme = next;
-      saveState();
-      applyTheme(next);
+
+    function refreshSelected() {
+      const current = state.settings.theme || "dark";
+      row.querySelectorAll(".pill").forEach(btn => {
+        btn.classList.toggle("selected", btn.dataset.themeChoice === current);
+      });
+    }
+    refreshSelected();
+
+    row.querySelectorAll(".pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.settings.theme = btn.dataset.themeChoice;
+        saveState();
+        applyTheme(state.settings.theme);
+        refreshSelected();
+      });
     });
   }
 

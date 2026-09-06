@@ -29,10 +29,6 @@
       <span class="brand-title">1 Minute of English</span>
     </div>
     <div class="header-actions">
-      <button class="icon-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
-        <span data-icon="moon" data-icon-size="18" class="theme-icon theme-icon--moon"></span>
-        <span data-icon="sun" data-icon-size="18" class="theme-icon theme-icon--sun"></span>
-      </button>
       <button class="icon-toggle" id="settings-toggle" aria-label="Settings">
         <span data-icon="settings" data-icon-size="18"></span>
       </button>
@@ -40,8 +36,21 @@
   </header>
 
   <div class="settings-panel" id="settings-panel">
-    <label for="voice-select">Pronunciation voice</label>
-    <select id="voice-select"></select>
+    <div class="settings-row">
+      <label>Theme</label>
+      <div class="pill-row" id="theme-pill-row">
+        <button class="pill" data-theme-choice="dark">
+          <span data-icon="moon" data-icon-size="14" class="inline-icon"></span> Dark
+        </button>
+        <button class="pill" data-theme-choice="light">
+          <span data-icon="sun" data-icon-size="14" class="inline-icon"></span> Light
+        </button>
+      </div>
+    </div>
+    <div class="settings-row">
+      <label for="voice-select">Pronunciation voice</label>
+      <select id="voice-select"></select>
+    </div>
     <button id="reset-progress-btn">Reset all progress</button>
   </div>
 
